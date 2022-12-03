@@ -29,18 +29,6 @@ local Window = OrionLib:MakeWindow({Name = "💥Tower Defense Simulator💥, MMD
 		  end    
 	})
 
-
-	Tab:AddButton({
-		Name = "Skip With KeyBind (Press E)",
-		Callback = function()
-			game:GetService("UserInputService").InputBegan:Connect(function(input, chatting)
-				if input.KeyCode == Enum.KeyCode.E and not chatting then
-				game.ReplicatedStorage.RemoteEvent:FireServer("Waves","Skip")
-				end
-				end)
-		  end    
-	})
-	
 	Tab:AddButton({
 		Name = "Auto Medic",
 		Callback = function()

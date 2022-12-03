@@ -1,6 +1,6 @@
 if game.placeId == 5591597781 then
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "💥Tower Defense Simulator💥, by Godku#5459", HidePremium = true, IntroText = "By GodKu the best", SaveConfig = false , ConfigFolder = "none"})
+local Window = OrionLib:MakeWindow({Name = "💥Tower Defense Simulator💥, MMD Script", HidePremium = true, IntroText = "Money Maker Is The Best", SaveConfig = false , ConfigFolder = "none"})
 	
 	getgenv()AutoChain = true
 	

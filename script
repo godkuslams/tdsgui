@@ -711,7 +711,7 @@ end
 					end
 				end
 			end
-			say("SUCCESS","Loaded - Made by GodKu#5459")
+			say("SUCCESS","Loaded - Made By Money Maker")
 			while wait(.3) do
 				for i,v in next,ToUpdate do
 					v.Text = i.." : "..Players[i]:GetAttribute("Cash")

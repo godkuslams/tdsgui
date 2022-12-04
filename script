@@ -1,8 +1,24 @@
 if game.placeId == 5591597781 then
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "💥 TDS In-Game💥, by Godku#5459", HidePremium = true, IntroText = "MID TDS", SaveConfig = false , ConfigFolder = "none"})
+local Window = OrionLib:MakeWindow({Name = "💥 TDS In-Game💥, by Godku#5459", HidePremium = true, IntroText = "Mid TDS", SaveConfig = false , ConfigFolder = "none"})
 	
-	getgenv()AutoChain = true
+local Players = game:GetService("Players")
+local connections = getconnections or get_signal_cons
+if connections then
+    for i,v in pairs(connections(Players.LocalPlayer.Idled)) do
+        if v["Disable"] then
+            v["Disable"](v)
+        elseif v["Disconnect"] then
+            v["Disconnect"](v)
+        end
+    end
+else
+    Players.LocalPlayer.Idled:Connect(function()
+        local VirtualUser = game:GetService("VirtualUser")
+        VirtualUser:CaptureController()
+        VirtualUser:ClickButton2(Vector2.new())
+    end)
+end
 	
 	local Tab = Window:MakeTab({
 		Name = "Utility",
@@ -669,10 +685,46 @@ end
 		  end    
 	})
 
+	local Tab = Window:MakeTab({
+		Name = "Visual",
+		Icon = "",
+		PremiumOnly = false
+	})
+
+	Tab:AddButton({
+		Name = "See Other Cash",
+		Callback = function()
+			local CollectionService = game:GetService("CollectionService")
+			local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/banbuskox/dfhtyxvzexrxgfdzgzfdvfdz/main/jsdnfjdsfdjnsmvkjhlkslzLIB", true))()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/banbuskox/dfhtyxvzexrxgfdzgzfdvfdz/main/sjkdkjlfdjnnmklcvxjNotifCr"))()
+			local w = lib:CreateWindow("Players Cash")
+			local ToUpdate = {}
+			local Players = {}
+			for i,v in pairs(game:GetService("ReplicatedStorage").StateReplicators:GetChildren()) do
+				if CollectionService:HasTag(v, "Player") and v:GetAttribute("Cash") ~= 0 then
+					w:Section(v:GetAttribute("Name").." : "..v:GetAttribute("Cash"))
+					for _,c in pairs(game.CoreGui:GetDescendants()) do
+						if c:IsA("TextLabel") and string.find(c.Text, v:GetAttribute("Cash")) then
+							ToUpdate[v:GetAttribute("Name")] = c
+							Players[v:GetAttribute("Name")] = v
+						end
+					end
+				end
+			end
+			say("SUCCESS","Loaded - Made by GodKu#5459")
+			while wait(.3) do
+				for i,v in next,ToUpdate do
+					v.Text = i.." : "..Players[i]:GetAttribute("Cash")
+				end
+			end
+		  end    
+	})
+
+
 elseif game.placeId == 3260590327 then
 
 		local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-		local Window = OrionLib:MakeWindow({Name = "💥 TDS Lobby 💥, by Godku#5459", HidePremium = true, IntroText = "MID TDS", SaveConfig = false , ConfigFolder = "none"})
+		local Window = OrionLib:MakeWindow({Name = "💥 TDS Lobby 💥, by Godku#5459", HidePremium = true, IntroText = "Mid TDS", SaveConfig = false , ConfigFolder = "none"})
 
 		local Tab = Window:MakeTab({
 			Name = "Utility",
@@ -680,6 +732,24 @@ elseif game.placeId == 3260590327 then
 			PremiumOnly = false
 		})
 
+
+		local Players = game:GetService("Players")
+		local connections = getconnections or get_signal_cons
+		if connections then
+			for i,v in pairs(connections(Players.LocalPlayer.Idled)) do
+				if v["Disable"] then
+					v["Disable"](v)
+				elseif v["Disconnect"] then
+					v["Disconnect"](v)
+				end
+			end
+		else
+			Players.LocalPlayer.Idled:Connect(function()
+				local VirtualUser = game:GetService("VirtualUser")
+				VirtualUser:CaptureController()
+				VirtualUser:ClickButton2(Vector2.new())
+			end)
+		end
 
 
 		Tab:AddButton({
@@ -1266,6 +1336,27 @@ elseif game.placeId == 3260590327 then
 				end
 			  end    
 		})
+
+		local Tab = Window:MakeTab({
+			Name = "Visual",
+			Icon = "",
+			PremiumOnly = false
+		})
+
+		Tab:AddButton({
+			Name = "Get All Tower (Visual)",
+			Callback = function()
+				local Newby = game:GetService("Players").LocalPlayer.PlayerGui.LobbyGui.Menu.Containers.Inventory.Content.Pages.Troops.Holder.Troops
+
+				Newby.UIGridLayout:Destroy()
+				for i, v in pairs(Newby:GetChildren()) do
+					v.Visible = true
+				end
+				
+				Instance.new("UIGridLayout", game:GetService("Players").LocalPlayer.PlayerGui.LobbyGui.Menu.Containers.Inventory.Content.Pages.Troops.Holder.Troops)
+			  end    
+		})
+
 
 	end
 	OrionLib:Init()

@@ -1159,7 +1159,46 @@ elseif game.placeId == 3260590327 then
 			  end    
 		})
 
-
+		Tab:AddButton({
+			Name = "Free Private Server",
+			Callback = function()
+				print("Original From: https://v3rmillion.net/showthread.php?tid=1127661\nCreddit To: Aidez")
+				repeat wait() until game:IsLoaded()
+				if game.PlaceId == 3260590327 and #game:GetService("Players"):GetChildren() >= 14 then --If server has over 14 then it will teleport you to the less player server
+					local HttpService = game:GetService("HttpService")
+					local function GetServers(placeid)
+						local Servers = {}
+						local MaxPlayers = 12 --Max player
+						local CurrentCursor = ""
+						if placeid == nil then
+							placeid = game.PlaceId
+						end
+						repeat
+							local Success = pcall(function()
+								local ListRaw = game:HttpGet("https://games.roblox.com/v1/games/"..tostring(placeid).."/servers/Public?sortOrder=Asc&limit=100&cursor="..CurrentCursor)
+								local CurrentList = HttpService:JSONDecode(ListRaw) -- done in 2 steps for getting cursor later
+								for i = 1,#CurrentList.data do
+									if CurrentList ~= nil then
+										if CurrentList.data[i].playing <= MaxPlayers then
+											table.insert(Servers, CurrentList.data[i])
+										end
+									end
+								end
+								local CursorIndex = string.find(ListRaw, "nextPageCursor")
+								local EndComma = string.find(ListRaw, ",", CursorIndex)
+								local ToEdit = string.sub(ListRaw, CursorIndex, EndComma - 1)
+								local ToEdit = string.gsub(ToEdit, '"', "")
+								CurrentCursor = string.gsub(ToEdit, 'nextPageCursor:', "")
+							end)
+							task.wait()
+						until CurrentCursor == "null" and Success == true
+						return Servers
+					end
+					local Servers = GetServers()
+					game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, Servers[math.random(1,#Servers)].id, game:GetService("Players").LocalPlayer)
+				end
+			  end    
+		})
 
 	end
 	OrionLib:Init()

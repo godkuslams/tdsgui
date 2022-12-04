@@ -37,25 +37,6 @@ local Window = OrionLib:MakeWindow({Name = "💥MID Tower Defense Simulator💥,
 	})
 
 	Tab:AddButton({
-		Name = "Force Changings Map",
-		Callback = function()
-			local L = game.ReplicatedStorage.RemoteFunction
-			for a, c in pairs(game:GetService('Workspace').Elevators:GetChildren()) do
-			  local a = require(c.Settings).Type
-			  local b = c.State.Players
-			  if a == "Survival" and b.Value <= 0 then
-				L:InvokeServer("Elevators", "Enter", c)
-				wait(1)
-				L:InvokeServer("Elevators", "Leave")
-			  end
-			end
-			wait(0.6)
-			L:InvokeServer("Elevators", "Leave")
-			wait(1)
-		  end    
-	})
-
-	Tab:AddButton({
 		Name = "Free Cam (Shift + P)",
 		Callback = function()
 				  --!nonstrict

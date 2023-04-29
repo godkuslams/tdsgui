@@ -1,6 +1,6 @@
 if game.placeId == 5591597781 then
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "💥 TDS In-Game💥, by Godku#5459", HidePremium = true, IntroText = "Mid TDS", SaveConfig = false , ConfigFolder = "none"})
+local Window = OrionLib:MakeWindow({Name = "Tower Hacking Sim V2.0", HidePremium = true, IntroText = "Loading...", SaveConfig = false , ConfigFolder = "none"})
 	
 local Players = game:GetService("Players")
 local connections = getconnections or get_signal_cons
@@ -724,7 +724,7 @@ end
 elseif game.placeId == 3260590327 then
 
 		local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-		local Window = OrionLib:MakeWindow({Name = "💥 TDS Lobby 💥, by Godku#5459", HidePremium = true, IntroText = "Mid TDS", SaveConfig = false , ConfigFolder = "none"})
+		local Window = OrionLib:MakeWindow({Name = "Tower Hacking Sim V2.0", HidePremium = true, IntroText = "Load Asset...", SaveConfig = false , ConfigFolder = "none"})
 
 		local Tab = Window:MakeTab({
 			Name = "Utility",

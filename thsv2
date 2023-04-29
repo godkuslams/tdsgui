@@ -727,63 +727,6 @@ end
 		  end    
 	})
 
-	
-	local Tab = Window:MakeTab({
-		Name = "Sound",
-		Icon = "",
-		PremiumOnly = false
-	})
-
-	Tab:AddLabel("Farm Sound changer")
-	Tab:AddLabel("Disclaimer: Make sure to execute the scripts before placing any farms! Once you execute, this is permanent for each match so be picky with what sound you want")
-	Tab:AddButton({
-		Name = "Ducky",
-		Callback = function()
-			local SoundId = "9439781512" --Use the sound list for what collect sound you want! I like graveyard's the most.
-
-			workspace.Towers.DescendantAdded:Connect(function(v)
-			   if v.Name == "Coin" then
-				  v.SoundId = "rbxassetid://"..SoundId
-			   end
-			end)
-		})			
-
-		Tab:AddButton({
-			Name = "Graveyard",
-			Callback = function()
-				local SoundId = "5893983978" --Use the sound list for what collect sound you want! I like graveyard's the most.
-	
-				workspace.Towers.DescendantAdded:Connect(function(v)
-				   if v.Name == "Coin" then
-					  v.SoundId = "rbxassetid://"..SoundId
-				   end
-				end)
-			})	
-
-			Tab:AddButton({
-				Name = "Vendor",
-				Callback = function()
-					local SoundId = "6684542570" --Use the sound list for what collect sound you want! I like graveyard's the most.
-		
-					workspace.Towers.DescendantAdded:Connect(function(v)
-					   if v.Name == "Coin" then
-						  v.SoundId = "rbxassetid://"..SoundId
-					   end
-					end)
-				})	
-
-				Tab:AddButton({
-					Name = "XMas and Present",
-					Callback = function()
-						local SoundId = "4537901048" --Use the sound list for what collect sound you want! I like graveyard's the most.
-			
-						workspace.Towers.DescendantAdded:Connect(function(v)
-						   if v.Name == "Coin" then
-							  v.SoundId = "rbxassetid://"..SoundId
-						   end
-						end)
-					})	
-
 elseif game.placeId == 3260590327 then
 
 		local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()

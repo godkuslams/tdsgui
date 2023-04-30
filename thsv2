@@ -1,3 +1,4 @@
+if getgenv().Key = "test" then
 if game.placeId == 5591597781 then
 	local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 	local Window = OrionLib:MakeWindow({Name = "Tower Hacking Sim V2.0", HidePremium = true, IntroText = "Loading...", SaveConfig = false , ConfigFolder = "none"})

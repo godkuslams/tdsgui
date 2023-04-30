@@ -67,7 +67,7 @@ if game.placeId == 5591597781 then
 		Tab:AddButton({
 			Name = "Auto Medic",
 			Callback = function()
-				loadstring(game:HttpGet("https://raw.githubusercontent.com/TacoCatBackWardsIsTacoCat/scripts/main/Auto%20Medic%20Ability.lua",true))()
+				loadstring(game:HttpGet("https://raw.githubusercontent.com/MintTea9260/scripts/main/TDS%20Auto%20Medic.lua",true))()
 			  end    
 		})
 	
